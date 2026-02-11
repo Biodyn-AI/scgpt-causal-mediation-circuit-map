@@ -6,6 +6,7 @@ Entry points:
 - Run tracing jobs: `subproject_09_causal_mediation_circuit_map/implementation/scripts/run_mediation_jobs.sh`
 - Aggregate results: `subproject_09_causal_mediation_circuit_map/implementation/scripts/analyze_mediation_results.py`
 - Summarize discovery support coverage: `python subproject_09_causal_mediation_circuit_map/implementation/scripts/analyze_discovery_coverage.py`
+- Analyze overlap controls and pair robustness: `python subproject_09_causal_mediation_circuit_map/implementation/scripts/analyze_overlap_controls.py`
 - Generate paper figures: `subproject_09_causal_mediation_circuit_map/implementation/scripts/generate_paper_figures.py`
 
 Key output roots:

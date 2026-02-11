@@ -5,6 +5,7 @@ Paper source: `subproject_09_causal_mediation_circuit_map/reports/causal_mediati
 Paper PDF: `subproject_09_causal_mediation_circuit_map/reports/causal_mediation_circuit_map_paper.pdf`.
 Refined results narrative: `subproject_09_causal_mediation_circuit_map/reports/causal_mediation_circuit_map_refined_report.md`.
 Paper quality gate report: `subproject_09_causal_mediation_circuit_map/reports/paper_quality_gate.md`.
+Iterator adversarial review pass: `subproject_09_causal_mediation_circuit_map/reports/iterator_pass.md`.
 
 Build command:
 `cd /Users/ihorkendiukhov/biodyn-work/subproject_09_causal_mediation_circuit_map/reports && latexmk -pdf causal_mediation_circuit_map_paper.tex`
