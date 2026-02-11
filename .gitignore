@@ -1,4 +1,6 @@
 .DS_Store
+__pycache__/
+*.pyc
 
 # Large local preprocessing artifacts
 implementation/results/preprocessed/*.h5ad
