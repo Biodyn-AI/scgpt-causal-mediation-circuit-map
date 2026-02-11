@@ -1,0 +1,5 @@
+granularity	tissue_a	tissue_b	shared_pairs	mean_jaccard_top5
+heads	kidney	lung	1	0.25
+heads	kidney	immune	2	0.2698412698412698
+mlp	kidney	lung	1	0.42857142857142855
+mlp	kidney	immune	2	0.5476190476190476

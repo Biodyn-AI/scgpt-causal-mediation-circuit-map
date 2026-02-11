@@ -1,0 +1,6 @@
+dataset	min_cells_threshold	pair	min_cells_across_tissues	mean_abs_effect_across_tissues	kidney_cells	lung_cells	immune_cells
+discovery_fixed40	1	KLF2->CXCR4	11	0.09010275927456936	12	11	12
+discovery_fixed40	1	STAT4->S100A4	2	0.04150203422263813	6	2	9
+discovery_fixed40	3	KLF2->CXCR4	11	0.09010275927456936	12	11	12
+discovery_fixed40	5	KLF2->CXCR4	11	0.09010275927456936	12	11	12
+discovery_fixed40	10	KLF2->CXCR4	11	0.09010275927456936	12	11	12

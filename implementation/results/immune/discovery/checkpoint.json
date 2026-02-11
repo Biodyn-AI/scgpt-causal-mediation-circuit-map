@@ -1,0 +1,415 @@
+{
+  "processed_pairs": [
+    "BCL11A||GATA1",
+    "CEBPB||HBB",
+    "CEBPB||PTGS2",
+    "CEBPB||PTPN13",
+    "CEBPB||SAA1",
+    "CEBPB||TFF3",
+    "CEBPB||TNFAIP6",
+    "CEBPD||CCL20",
+    "CEBPD||PPARG",
+    "CEBPD||PTGS2",
+    "CREB5||CFB",
+    "CREM||CCL4",
+    "CREM||IL2",
+    "E2F1||DAPK2",
+    "E2F1||E2F1",
+    "E2F1||FLT1",
+    "E2F1||IL1B",
+    "EGR1||ACHE",
+    "EGR1||PTEN",
+    "ERG||CDH5",
+    "ERG||CXCL8",
+    "ERG||HMOX1",
+    "ERG||ICAM1",
+    "ETS1||CD6",
+    "ETS1||CSF2",
+    "ETS1||ERG",
+    "ETS1||HMOX1",
+    "ETS1||IL2",
+    "ETS1||MGAT5",
+    "ETS1||MMP13",
+    "ETS1||PF4",
+    "ETS1||SLC26A3",
+    "ETS1||TNFSF14",
+    "ETS2||CSF3R",
+    "FOS||BCL2L1",
+    "FOS||CD40LG",
+    "FOS||CLU",
+    "FOS||CREM",
+    "FOS||FOXA1",
+    "FOS||NTS",
+    "FOS||PGR",
+    "FOXA1||BCL2",
+    "FOXO3||BCL6",
+    "GATA1||DACH1",
+    "GATA1||FCER1A",
+    "GATA1||GFI1B",
+    "GATA1||HBB",
+    "GATA1||HEMGN",
+    "GATA1||IL1RL1",
+    "GATA1||KLF1",
+    "GATA1||SEMG1",
+    "GATA2||ADH1A",
+    "GATA2||CYBB",
+    "GATA4||FCGR3B",
+    "GFI1B||MEF2C",
+    "JUN||APOC3",
+    "JUN||CA2",
+    "JUN||DCN",
+    "JUN||IFNG",
+    "JUN||IL1B",
+    "JUN||JUN",
+    "JUN||LGALS3",
+    "JUN||LORICRIN",
+    "JUN||MMP13",
+    "JUN||PTN",
+    "MEF2C||JUN",
+    "MEF2C||NR4A1",
+    "NCOA4||KLK3",
+    "NFIX||CHI3L1",
+    "NFKB1||ABCA1",
+    "NFKB1||ALOX5AP",
+    "NFKB1||CCL3",
+    "NFKB1||CD3G",
+    "NFKB1||CRP",
+    "NFKB1||CTSB",
+    "NFKB1||CXCL8",
+    "NFKB1||DRD2",
+    "NFKB1||FN1",
+    "NFKB1||GFAP",
+    "NFKB1||IER3",
+    "NFKB1||IFNB1",
+    "NFKB1||IL2",
+    "NFKB1||MMP9",
+    "NFKB1||NANOS2",
+    "NFKB1||NFKBIZ",
+    "NFKB1||OLR1",
+    "NFKB1||PTEN",
+    "NFKB1||PTGS2",
+    "NFKB1||PTPN13",
+    "NFKB1||STAT4",
+    "NFKB1||TLR2",
+    "NFKBIA||NANOS2",
+    "NFKBIZ||DEFB4A",
+    "NKX2-5||LYL1",
+    "NKX2-5||TBX5",
+    "NR4A2||CXCL8",
+    "PGR||E2F1",
+    "PGR||IGFBP1",
+    "PGR||IRS2",
+    "PPARG||BCL2L1",
+    "PPARG||GK",
+    "PPARG||PTEN",
+    "PPARG||PTGS2",
+    "RBPJ||NFKB1",
+    "RUNX2||ELANE",
+    "RUNX2||LGALS3",
+    "RUNX2||MMP13",
+    "RUNX2||PIP",
+    "RUNX2||SP7",
+    "SNAI2||CDH2",
+    "SPI1||CD163",
+    "SPI1||DAPK2",
+    "SPI1||FCER1A",
+    "SPI1||IL1B",
+    "STAT4||IFNG",
+    "TBR1||RELN",
+    "TOB1||IL2",
+    "WT1||BCL2",
+    "WT1||CKM",
+    "ZBTB16||ID2"
+  ],
+  "pair_stats": {
+    "CEBPB||SAA1": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.013605117797851562,
+        "m2": 0.0
+      }
+    },
+    "JUN||IFNG": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.53857421875,
+        "m2": 0.0
+      }
+    },
+    "CEBPD||PPARG": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.032459259033203125,
+        "m2": 0.0
+      }
+    },
+    "ETS1||CD6": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.0635986328125,
+        "m2": 0.0
+      }
+    },
+    "NFKB1||STAT4": {
+      "ablation": {
+        "count": 4,
+        "mean": 0.00992727279663086,
+        "m2": 0.007578488143735739
+      }
+    },
+    "ETS1||MGAT5": {
+      "ablation": {
+        "count": 4,
+        "mean": -0.09793901443481445,
+        "m2": 0.013817924164868598
+      }
+    },
+    "JUN||IL1B": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.000301361083984375,
+        "m2": 0.0
+      }
+    },
+    "NFKB1||CD3G": {
+      "ablation": {
+        "count": 2,
+        "mean": 0.05588817596435547,
+        "m2": 0.0021112951089889975
+      }
+    },
+    "ZBTB16||ID2": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.02481842041015625,
+        "m2": 0.0
+      }
+    },
+    "PGR||E2F1": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.1551666259765625,
+        "m2": 0.0
+      }
+    },
+    "NFKB1||PTEN": {
+      "ablation": {
+        "count": 4,
+        "mean": -0.0059680938720703125,
+        "m2": 0.00026155240630032495
+      }
+    },
+    "JUN||CA2": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.0553131103515625,
+        "m2": 0.0
+      }
+    },
+    "EGR1||PTEN": {
+      "ablation": {
+        "count": 3,
+        "mean": 0.043003082275390625,
+        "m2": 0.021078975820273627
+      }
+    },
+    "E2F1||E2F1": {
+      "ablation": {
+        "count": 2,
+        "mean": -0.2109537124633789,
+        "m2": 0.872078495887763
+      }
+    },
+    "FOS||BCL2L1": {
+      "ablation": {
+        "count": 2,
+        "mean": 0.05289268493652344,
+        "m2": 0.005221984611125663
+      }
+    },
+    "NFKB1||TLR2": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.01670074462890625,
+        "m2": 0.0
+      }
+    },
+    "JUN||LGALS3": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.03638267517089844,
+        "m2": 0.0
+      }
+    },
+    "MEF2C||NR4A1": {
+      "ablation": {
+        "count": 4,
+        "mean": 0.07781171798706055,
+        "m2": 0.007521508613535843
+      }
+    },
+    "NFKB1||ABCA1": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.0829010009765625,
+        "m2": 0.0
+      }
+    },
+    "PPARG||BCL2L1": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.04113578796386719,
+        "m2": 0.0
+      }
+    },
+    "NFKB1||CXCL8": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.0015354156494140625,
+        "m2": 0.0
+      }
+    },
+    "NFKB1||CCL3": {
+      "ablation": {
+        "count": 2,
+        "mean": -0.013301849365234375,
+        "m2": 0.0004086180415470153
+      }
+    },
+    "CREB5||CFB": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.06267166137695312,
+        "m2": 0.0
+      }
+    },
+    "RBPJ||NFKB1": {
+      "ablation": {
+        "count": 5,
+        "mean": 0.011964797973632812,
+        "m2": 0.0009175919039989822
+      }
+    },
+    "JUN||JUN": {
+      "ablation": {
+        "count": 10,
+        "mean": -1.2780448913574218,
+        "m2": 4.361924656799238
+      }
+    },
+    "NFKB1||FN1": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.0053577423095703125,
+        "m2": 0.0
+      }
+    },
+    "PPARG||GK": {
+      "ablation": {
+        "count": 2,
+        "mean": -0.020305633544921875,
+        "m2": 0.0022579003125429153
+      }
+    },
+    "NFKB1||NFKBIZ": {
+      "ablation": {
+        "count": 5,
+        "mean": -0.0095550537109375,
+        "m2": 0.0007486871807486752
+      }
+    },
+    "CREM||CCL4": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.012861251831054688,
+        "m2": 0.0
+      }
+    },
+    "NFKB1||CTSB": {
+      "ablation": {
+        "count": 4,
+        "mean": -0.005401134490966797,
+        "m2": 0.00018951874790218426
+      }
+    },
+    "MEF2C||JUN": {
+      "ablation": {
+        "count": 6,
+        "mean": 0.11019706726074219,
+        "m2": 0.03761022050457541
+      }
+    },
+    "SPI1||IL1B": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.05335235595703125,
+        "m2": 0.0
+      }
+    },
+    "ETS2||CSF3R": {
+      "ablation": {
+        "count": 3,
+        "mean": -0.04902776082356771,
+        "m2": 0.0024077763761548945
+      }
+    },
+    "SPI1||CD163": {
+      "ablation": {
+        "count": 5,
+        "mean": 0.017291259765624997,
+        "m2": 0.06541599474876421
+      }
+    },
+    "FOS||CREM": {
+      "ablation": {
+        "count": 6,
+        "mean": 0.1761484146118164,
+        "m2": 0.02506660239851044
+      }
+    },
+    "NFKB1||OLR1": {
+      "ablation": {
+        "count": 2,
+        "mean": -0.024297714233398438,
+        "m2": 0.0011863256877404638
+      }
+    },
+    "NFKB1||ALOX5AP": {
+      "ablation": {
+        "count": 2,
+        "mean": 0.015822410583496094,
+        "m2": 0.0001934640185936587
+      }
+    },
+    "FOXO3||BCL6": {
+      "ablation": {
+        "count": 3,
+        "mean": 0.023930867513020836,
+        "m2": 0.0014221829284603396
+      }
+    },
+    "NR4A2||CXCL8": {
+      "ablation": {
+        "count": 2,
+        "mean": 0.042725563049316406,
+        "m2": 0.0056594159850646975
+      }
+    },
+    "CEBPB||TNFAIP6": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.1672801971435547,
+        "m2": 0.0
+      }
+    },
+    "FOS||CLU": {
+      "ablation": {
+        "count": 2,
+        "mean": 0.06342506408691406,
+        "m2": 0.003659590794995893
+      }
+    }
+  },
+  "component_stats": {},
+  "saved_at": 1770769090.7101
+}

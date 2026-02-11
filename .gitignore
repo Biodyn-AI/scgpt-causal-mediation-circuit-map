@@ -1,0 +1,13 @@
+.DS_Store
+
+# Large local preprocessing artifacts
+implementation/results/preprocessed/*.h5ad
+
+# LaTeX build artifacts
+reports/*.aux
+reports/*.bbl
+reports/*.blg
+reports/*.fdb_latexmk
+reports/*.fls
+reports/*.log
+reports/*.out

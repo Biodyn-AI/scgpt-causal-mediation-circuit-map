@@ -1,0 +1,3 @@
+source	target	label	intervention	effect_mean	effect_std	n_cells
+GATA3	GATA3	1	ablation	-0.24883015950520834	0.20182025694708847	3
+GATA3	GATA3	1	swap	0.41448020935058594	0.9658646941237076	3

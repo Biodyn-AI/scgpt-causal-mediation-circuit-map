@@ -1,0 +1,263 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\title{Causal Mediation Circuit Maps for scGPT:\\
+Cross-Tissue Evidence and Limits}
+
+\author{
+Ihor Kendiukhov\\
+University of Tuebingen, Computer Science Department\\
+\texttt{kenduhov.ig@gmail.com}
+}
+
+\date{February 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Mechanistic interpretability for single-cell foundation models is still dominated by aggregate edge-level metrics, leaving uncertain which internal components mediate specific regulatory effects. We present a mediation-based circuit mapping framework for scGPT that decomposes transcription-factor (TF) to target effects into attention-head and MLP mediator contributions using intervention-plus-patching experiments. We analyze Tabula Sapiens kidney and lung, plus an immune subset, with a discovery-to-refinement protocol that separates pair-support coverage from expensive tracing. Discovery coverage quantifies the bottleneck directly: in a random 132-pair panel, no TF-target pair has support in all three tissues at any tested cell-count threshold; in a fixed 40-pair replay, only one pair (\texttt{KLF2}$\rightarrow$\texttt{CXCR4}) remains supported across tissues at thresholds up to $n \geq 10$ cells per tissue. On the refined pair set, mediation is concentrated (top-5 mass 0.63--0.66 for heads vs. 0.82--0.92 for MLP) and MLP mediator overlap is higher than head overlap (mean top-5 Jaccard up to 0.71 for lung--immune MLP). These results support a narrow but reproducible claim: scGPT contains compact, partly conserved MLP mediation structure for at least one cross-tissue regulatory effect, while broader generalization is presently limited by sparse shared-pair evidence.
+\end{abstract}
+
+\section{Introduction}
+Single-cell transformer models capture broad gene-expression dependencies and have enabled transfer-learning workflows in cellular biology \citep{cui2024scgpt,theodoris2023geneformer}. However, most analyses still report aggregate predictions (for example, edge rankings or attention summaries) rather than mechanistic localization of model-internal computation. This leaves a central question open: when a TF perturbation changes a target prediction, which model components carry that effect?
+
+This question is important for both interpretability validity and biological utility. Mechanistic claims are stronger when they are tied to internal causal pathways instead of post hoc narratives \citep{elhage2021framework,adebayo2018saliency}. In addition, cross-tissue biological claims should ideally be supported by conserved internal mediators, not only by similar edge-level outputs.
+
+We adapt causal mediation analysis \citep{pearl2001mediation,imai2010mediation} and transformer patching methods \citep{geva2022ffn,meng2022rome} to scGPT and evaluate cross-tissue mediator conservation. The study is designed around one practical concern: candidate TF-target support is sparse across tissues, so coverage must be quantified explicitly before tracing.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+    \item A mediation-circuit pipeline for scGPT that estimates component-level restoration from TF ablations.
+    \item A discovery-coverage analysis showing where cross-tissue evidence is sufficient or insufficient for mechanistic tracing.
+    \item Evidence that, on the refined shared-pair set, MLP mediators are more concentrated and more cross-tissue conserved than attention-head mediators.
+\end{enumerate}
+
+\section{Related Work}
+\paragraph{Single-cell foundation models.}
+scGPT introduced generative foundation modeling for single-cell omics \citep{cui2024scgpt}. Geneformer showed that transformer pretraining can support transfer-learning and network-level biological inference \citep{theodoris2023geneformer}. Our work focuses on mechanistic decomposition of specific TF-target effects within such models.
+
+\paragraph{Mechanistic interpretability and intervention methods.}
+Circuit-oriented transformer interpretability emphasizes internal pathways rather than global scores \citep{elhage2021framework}. Activation patching and related targeted interventions are now standard tools for localizing computations across layers and modules \citep{geva2022ffn,meng2022rome}. Sparse feature decomposition has also been used to improve interpretability granularity in large models \citep{bricken2023monosemanticity}.
+
+\paragraph{Interpretability validity and pitfalls.}
+Interpretability methods can produce plausible but weakly grounded explanations unless validated with controls. Probe interpretability caveats and methodological pitfalls are well documented \citep{hewitt2019probe,belinkov2022probing}, and attribution methods require sanity checks to avoid spurious narratives \citep{adebayo2018saliency}. We therefore emphasize explicit uncertainty reporting and negative-evidence cases.
+
+\section{Methods}
+\subsection{Datasets and preprocessing}
+We use Tabula Sapiens kidney and lung plus a 20k-cell immune subset \citep{tabulasapiens2022}. Candidate regulatory pairs are sourced from TRRUST and DoRothEA-backed settings \citep{han2018trrust,garcia2019dorothea}. Preprocessing maps Ensembl identifiers to HGNC symbols, applies normalization and HVG filtering, and restricts analysis to model-vocabulary genes.
+
+\subsection{Intervention and mediation estimation}
+For each TF-target pair and eligible cell, we compute a total ablation effect
+\begin{equation}
+\mathrm{TE} = y_{\mathrm{baseline}} - y_{\mathrm{ablated}},
+\end{equation}
+where $y$ is the target readout and TF ablation is applied in the model input pipeline.
+
+For each mediator component $M$ (attention head or MLP block), we patch the clean activation into the ablated run and compute restoration
+\begin{equation}
+r_M = y_{\mathrm{patched}(M)} - y_{\mathrm{ablated}}.
+\end{equation}
+We summarize pair-level mediator influence via normalized mediation score
+\begin{equation}
+\mathrm{med}_M = \frac{r_M}{\mathrm{TE}}.
+\end{equation}
+
+At tissue level, we report:
+\begin{itemize}
+    \item \textbf{Top-5 mediator mass}: fraction of absolute restoration captured by the five strongest mediators.
+    \item \textbf{Top-5 Jaccard overlap}: cross-tissue overlap of top mediator sets for shared pairs.
+\end{itemize}
+
+\subsection{Discovery coverage and refinement}
+To avoid tracing unsupported pairs, we run a staged protocol:
+\begin{enumerate}
+    \item broad ablation-only discovery,
+    \item fixed-pair replay across tissues,
+    \item refined mediation tracing only on shared-support pairs.
+\end{enumerate}
+Coverage is quantified at minimum cell thresholds ($n \geq 1, 3, 5, 10$ per tissue), producing a direct estimate of how many pairs are suitable for cross-tissue mechanistic comparison.
+
+\subsection{Uncertainty and control logic}
+For ablation effects we report mean, standard deviation, and approximate 95\% confidence intervals (normal approximation). For mediator restorations we report component-level confidence intervals from cell-level variation. A built-in negative-evidence condition is the low-support pair \texttt{STAT4}$\rightarrow$\texttt{S100A4} in lung ($n=2$), where unstable estimates test whether the analysis overstates weak evidence.
+
+\section{Experimental Setup}
+We run two tiers:
+\begin{itemize}
+    \item \textbf{Initial tracing tier}: 5 curated pairs across kidney/lung/immune for pipeline validation.
+    \item \textbf{Refined tier}: 2 cross-tissue pairs selected by discovery replay.
+    Pair set: \texttt{KLF2}$\rightarrow$\texttt{CXCR4}, \texttt{STAT4}$\rightarrow$\texttt{S100A4}.
+\end{itemize}
+All refined analyses use both attention-head and MLP mediator tracing with the same pair set, enabling direct granularity comparisons.
+
+\section{Results}
+\subsection{Coverage analysis identifies one robust shared pair}
+Coverage analysis shows that cross-tissue support, not tracing mechanics, is the immediate bottleneck. In the random discovery panel (132 unique pairs), zero pairs are shared across all three tissues at every threshold tested. In contrast, fixed-pair replay yields two shared pairs at $n \geq 1$, but only one pair remains at $n \geq 3$ and above.
+
+\begin{table}[H]
+\centering
+\caption{Cross-tissue support coverage from ablation-only discovery.}
+\label{tab:coverage}
+\begin{tabular}{llrrrr}
+\toprule
+Dataset & Min cells & Kidney & Lung & Immune & Shared all tissues \\
+\midrule
+Random discovery (132 pairs) & $\geq 1$  & 65 & 34 & 41 & 0 \\
+Random discovery (132 pairs) & $\geq 3$  & 32 & 20 & 14 & 0 \\
+Random discovery (132 pairs) & $\geq 5$  & 13 & 15 &  6 & 0 \\
+Random discovery (132 pairs) & $\geq 10$ &  2 &  9 &  1 & 0 \\
+Fixed replay (40 pairs)      & $\geq 1$  & 40 &  5 & 10 & 2 \\
+Fixed replay (40 pairs)      & $\geq 3$  & 34 &  4 &  7 & 1 \\
+Fixed replay (40 pairs)      & $\geq 5$  & 20 &  4 &  4 & 1 \\
+Fixed replay (40 pairs)      & $\geq 10$ &  2 &  3 &  3 & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Interpretation: robust cross-tissue mechanistic analysis is currently feasible for \texttt{KLF2}$\rightarrow$\texttt{CXCR4}; broader claims are constrained by support sparsity.
+
+\subsection{Pair-level total effects are strongest for KLF2-to-CXCR4}
+\begin{table}[H]
+\centering
+\caption{Refined pair-level ablation effects with approximate 95\% confidence intervals.}
+\label{tab:pair_effects}
+\begin{tabular}{llrrr}
+\toprule
+Pair & Tissue & $n_{\mathrm{cells}}$ & Effect mean & 95\% CI \\
+\midrule
+KLF2$\rightarrow$CXCR4 & Kidney & 12 & -0.0315 & [-0.0469, -0.0160] \\
+KLF2$\rightarrow$CXCR4 & Lung   & 11 & -0.0818 & [-0.1765,  0.0128] \\
+KLF2$\rightarrow$CXCR4 & Immune & 12 & -0.1570 & [-0.2376, -0.0764] \\
+STAT4$\rightarrow$S100A4 & Kidney & 6 &  0.0726 & [ 0.0308,  0.1145] \\
+STAT4$\rightarrow$S100A4 & Lung   & 2 & -0.0009 & [-0.0031,  0.0012] \\
+STAT4$\rightarrow$S100A4 & Immune & 9 &  0.0509 & [-0.0636,  0.1654] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The low-support lung estimate for \texttt{STAT4}$\rightarrow$\texttt{S100A4} is effectively null at this sample size, reinforcing the coverage-driven refinement strategy.
+
+\subsection{Mediator concentration is consistently higher for MLP blocks}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\linewidth]{figures/fig_mediator_mass_refined.png}
+    \caption{Top-5 mediator mass by tissue and granularity. Higher values indicate stronger concentration of restoration into a small mediator subset.}
+    \label{fig:mass}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Aggregate refined mediation metrics.}
+\label{tab:summary}
+\begin{tabular}{llrrr}
+\toprule
+Tissue & Granularity & Pairs & Mean $|$effect$|$ & Top-5 mediator mass \\
+\midrule
+Kidney & Heads & 2 & 0.0521 & 0.6647 \\
+Kidney & MLP   & 2 & 0.0521 & 0.8689 \\
+Lung   & Heads & 2 & 0.0414 & 0.6353 \\
+Lung   & MLP   & 2 & 0.0414 & 0.9237 \\
+Immune & Heads & 2 & 0.1040 & 0.6304 \\
+Immune & MLP   & 2 & 0.1040 & 0.8244 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Across tissues, top-5 MLP mediators account for most restoration mass, while head mediation is less concentrated.
+
+\subsection{MLP mediator overlap exceeds head overlap across tissues}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\linewidth]{figures/fig_overlap_jaccard_refined.png}
+    \caption{Top-5 mediator Jaccard overlap across tissue pairs. MLP overlap is consistently higher than head overlap in the refined setting.}
+    \label{fig:overlap}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Mean top-5 mediator overlap (Jaccard) for shared refined pairs.}
+\label{tab:overlap}
+\begin{tabular}{llr}
+\toprule
+Granularity & Tissue pair & Mean Jaccard \\
+\midrule
+Heads & Kidney-Lung   & 0.3393 \\
+Heads & Kidney-Immune & 0.1806 \\
+Heads & Lung-Immune   & 0.1806 \\
+MLP   & Kidney-Lung   & 0.5476 \\
+MLP   & Kidney-Immune & 0.3393 \\
+MLP   & Lung-Immune   & 0.7143 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These overlap patterns support an MLP-dominant conservation signal within the current evidence envelope.
+
+\subsection{Component-level uncertainty is tissue dependent}
+\begin{table}[H]
+\centering
+\caption{Top-10 components with confidence intervals excluding zero.}
+\label{tab:component_ci}
+\begin{tabular}{llrr}
+\toprule
+Tissue & Granularity & Significant components (/10) & Fraction \\
+\midrule
+Kidney & Heads & 0/10 & 0.00 \\
+Kidney & MLP   & 0/10 & 0.00 \\
+Lung   & Heads & 5/10 & 0.50 \\
+Lung   & MLP   & 5/10 & 0.50 \\
+Immune & Heads & 4/10 & 0.40 \\
+Immune & MLP   & 7/10 & 0.70 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The kidney refined run shows wider uncertainty at component level despite stable pair-level support, indicating that mediator ranking confidence remains heterogeneous across tissues.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\linewidth]{figures/fig_pair_effects_refined.png}
+    \caption{Cross-tissue ablation effects for refined shared pairs with per-bar cell-count annotations.}
+    \label{fig:effects}
+\end{figure}
+
+\section{Biological Interpretation}
+The strongest shared pair, \texttt{KLF2}$\rightarrow$\texttt{CXCR4}, is compatible with known roles of KLF2 in lymphocyte trafficking and chemokine-receptor-associated state programs \citep{carlson2006klf2}. Our claim is not that the model has recovered a proven direct regulatory edge; rather, the internal mediation pattern suggests that scGPT uses a compact feed-forward transformation for this TF-target context across tissues.
+
+For \texttt{STAT4}$\rightarrow$\texttt{S100A4}, evidence is insufficient for comparable mechanistic interpretation in lung because of minimal support ($n=2$). This contrast between pairs is informative: biological narrative quality tracks support coverage.
+
+\section{Discussion}
+\subsection{What is supported}
+Direct evidence supports three bounded conclusions: (1) component-level mediation tracing is feasible in a single-cell transformer, (2) restoration mass is concentrated in small mediator subsets, and (3) MLP mediator overlap exceeds head overlap for the refined shared-pair setting.
+
+\subsection{What is not yet supported}
+The current data do not support broad claims about universal cross-tissue conservation across many TF-target pairs. Coverage analysis shows that most candidate pairs fail shared-support criteria even before tracing. In addition, wide component-level confidence intervals in kidney indicate that local mediator rankings can remain unstable.
+
+\subsection{Alternative explanations and falsification pressure}
+Observed mediator overlap could be inflated by shared dataset structure rather than conserved regulatory computation. Stronger falsification would require larger shared-pair panels, batch-aware stratification, and targeted perturbation validation. We therefore frame current conclusions as mechanistic hypotheses with one robust exemplar pair.
+
+\section{Conclusion}
+This study provides a reproducible mediation-circuit workflow for scGPT and identifies a clear practical bottleneck: cross-tissue shared-pair support. Within that constraint, \texttt{KLF2}$\rightarrow$\texttt{CXCR4} shows concentrated and partially conserved MLP mediation across kidney, lung, and immune settings. The next step is scaling shared-support discovery so that conservation claims can be tested on larger TF-target panels.
+
+\section*{Data and Code Availability}
+All code, analysis scripts, configuration files, and figure-generation pipelines are publicly available at \url{https://github.com/Biodyn-AI/scgpt-causal-mediation-circuit-map}. The repository README provides end-to-end instructions to reproduce all main figures and tables and includes dataset access notes for Tabula Sapiens and reference-network resources.
+
+\section*{Supplementary Notes}
+Supplementary tables, expanded component-level outputs, and discovery-coverage artifacts are provided in the public repository. Operational run instructions are documented in the repository README rather than this manuscript.
+
+\bibliographystyle{plainnat}
+\bibliography{causal_mediation_circuit_map_paper}
+
+\end{document}

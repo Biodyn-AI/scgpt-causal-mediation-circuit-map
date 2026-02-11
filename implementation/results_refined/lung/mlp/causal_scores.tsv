@@ -1,0 +1,3 @@
+source	target	label	intervention	effect_mean	effect_std	n_cells
+KLF2	CXCR4	1	ablation	-0.08180913058194247	0.16015080847906393	11
+STAT4	S100A4	1	ablation	-0.00092315673828125	0.0015375170336774143	2

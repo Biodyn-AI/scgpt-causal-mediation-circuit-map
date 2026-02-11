@@ -1,0 +1,366 @@
+{
+  "processed_pairs": [
+    "AKR1B1||CRISP3",
+    "AKR1B1||SERPINB5",
+    "AKR1B1||TCF7L2",
+    "AKR1B1||TJP1",
+    "AKR1B1||TRPS1",
+    "ATF3||LDLR",
+    "ATF3||MMP2",
+    "CDX1||POSTN",
+    "CDX2||KLF4",
+    "CDX2||TFF3",
+    "CREB5||TGFBR3",
+    "EGR1||ABCB1",
+    "EGR1||CACNA1H",
+    "EGR1||CNTN1",
+    "EGR1||CXCL8",
+    "EGR1||FCER2",
+    "EGR1||FLT1",
+    "EGR1||IL2RB",
+    "EGR1||PPARG",
+    "ELF3||SPRR1B",
+    "ELF3||TIMP3",
+    "EPAS1||SERPINE1",
+    "ERG||CDH5",
+    "ERG||CXCL8",
+    "ERG||HMOX1",
+    "ETS1||ANPEP",
+    "ETS1||CCN2",
+    "ETS1||ERG",
+    "ETS1||F13A1",
+    "ETS1||FLT1",
+    "ETS1||HMOX1",
+    "ETS1||HPGD",
+    "ETS1||IL2RB",
+    "ETS1||MMP10",
+    "ETS1||MMP9",
+    "ETS1||PF4",
+    "FLI1||COL1A2",
+    "FLI1||PHLDA1",
+    "FOSB||CXCL8",
+    "FOSB||TIMP1",
+    "FOXF1||CDH1",
+    "FOXF2||MT1E",
+    "FOXO1||CXCR4",
+    "FOXO1||PDGFB",
+    "FOXP2||PLAUR",
+    "GATA1||F13A1",
+    "GATA1||HBA2",
+    "GATA1||PF4",
+    "GATA1||SPI1",
+    "GATA1||TBXA2R",
+    "GATA2||GATA1",
+    "GATA2||MS4A2",
+    "GATA2||PPARG",
+    "GATA2||SPI1",
+    "GATA3||CD8A",
+    "GATA3||CXCL1",
+    "GATA3||ERG",
+    "GATA3||STAT4",
+    "GATA3||TGFBR3",
+    "HIF3A||EPAS1",
+    "HOXA5||TH",
+    "KLF2||CXCR4",
+    "KLF2||PPARG",
+    "KLF2||THBD",
+    "KLF4||ALPI",
+    "KLF4||ATF3",
+    "LEF1||EDA",
+    "LEF1||TCF4",
+    "MITF||TYRP1",
+    "MSC||CELIAC3",
+    "MSC||LTA",
+    "MSX1||DLK1",
+    "NFATC2||CD3G",
+    "NFATC2||FOXP3",
+    "NKX2-3||EGR1",
+    "NR1H4||EDN1",
+    "PAX5||BLK",
+    "PAX5||CCND1",
+    "PAX5||TIMP1",
+    "PBX1||HOXB1",
+    "PPARG||AGER",
+    "PPARG||CD36",
+    "PPARG||GK",
+    "PPARG||MMP9",
+    "PPARG||PLIN2",
+    "PROX1||IFNG",
+    "PROX1||NR5A2",
+    "RUNX3||GATD3",
+    "RUNX3||TCF4",
+    "SNAI1||FN1",
+    "SOX17||FN1",
+    "SPI1||BPI",
+    "SPI1||DAPK2",
+    "SPI1||FLI1",
+    "SPI1||GATA1",
+    "SPI1||HCK",
+    "SPI1||IL12B",
+    "SPI1||ITGB2",
+    "SPI1||PTGIR",
+    "STAT4||NOX4",
+    "STAT4||S100A4",
+    "TAL1||ERG",
+    "TBX21||GATA3",
+    "TBX21||IL10",
+    "TCF4||CLEC4C",
+    "TCF4||LGR5",
+    "TCF4||VIM",
+    "TP63||TCF4",
+    "WT1||AKR1B1",
+    "WT1||CCN2",
+    "WT1||CDH1",
+    "WT1||IGF2",
+    "WT1||ITGAX",
+    "WT1||TBXA2R",
+    "WT1||THBS1",
+    "ZBTB16||CXCR4",
+    "ZBTB16||LEF1",
+    "ZEB1||MUC1",
+    "ZEB2||CDH1",
+    "ZIC2||TCF4"
+  ],
+  "pair_stats": {
+    "PPARG||PLIN2": {
+      "ablation": {
+        "count": 10,
+        "mean": -0.06697845458984375,
+        "m2": 0.12517113520152634
+      }
+    },
+    "STAT4||S100A4": {
+      "ablation": {
+        "count": 2,
+        "mean": -0.0009241104125976562,
+        "m2": 2.335016688448377e-06
+      }
+    },
+    "EGR1||FLT1": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.16275787353515625,
+        "m2": 0.0
+      }
+    },
+    "ZEB2||CDH1": {
+      "ablation": {
+        "count": 2,
+        "mean": -0.00736236572265625,
+        "m2": 0.00010964812827296555
+      }
+    },
+    "EGR1||CACNA1H": {
+      "ablation": {
+        "count": 1,
+        "mean": 0.09315872192382812,
+        "m2": 0.0
+      }
+    },
+    "AKR1B1||TRPS1": {
+      "ablation": {
+        "count": 7,
+        "mean": 0.00944028581891741,
+        "m2": 0.04183962641296343
+      }
+    },
+    "AKR1B1||TCF7L2": {
+      "ablation": {
+        "count": 10,
+        "mean": 0.034816741943359375,
+        "m2": 0.15581975037639498
+      }
+    },
+    "SPI1||ITGB2": {
+      "ablation": {
+        "count": 10,
+        "mean": -0.1630237579345703,
+        "m2": 0.4286812799560721
+      }
+    },
+    "SPI1||FLI1": {
+      "ablation": {
+        "count": 10,
+        "mean": -0.019016838073730467,
+        "m2": 0.053996131173698815
+      }
+    },
+    "ZBTB16||CXCR4": {
+      "ablation": {
+        "count": 8,
+        "mean": 0.009295225143432617,
+        "m2": 0.0009240610593224118
+      }
+    },
+    "HIF3A||EPAS1": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.03587532043457031,
+        "m2": 0.0
+      }
+    },
+    "KLF2||CXCR4": {
+      "ablation": {
+        "count": 10,
+        "mean": -0.08963279724121094,
+        "m2": 0.24974981432169444
+      }
+    },
+    "FOXO1||CXCR4": {
+      "ablation": {
+        "count": 4,
+        "mean": -0.013701915740966797,
+        "m2": 0.0006060769546820666
+      }
+    },
+    "ERG||CDH5": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.009479522705078125,
+        "m2": 0.0
+      }
+    },
+    "EPAS1||SERPINE1": {
+      "ablation": {
+        "count": 3,
+        "mean": 0.012410481770833332,
+        "m2": 0.0022512996317042657
+      }
+    },
+    "EGR1||CNTN1": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.03747367858886719,
+        "m2": 0.0
+      }
+    },
+    "FLI1||PHLDA1": {
+      "ablation": {
+        "count": 3,
+        "mean": -0.014463424682617188,
+        "m2": 0.0003572247296688147
+      }
+    },
+    "EGR1||PPARG": {
+      "ablation": {
+        "count": 10,
+        "mean": 0.024491882324218752,
+        "m2": 0.03582739487173967
+      }
+    },
+    "GATA3||CXCL1": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.07541465759277344,
+        "m2": 0.0
+      }
+    },
+    "PPARG||GK": {
+      "ablation": {
+        "count": 9,
+        "mean": -0.09107081095377605,
+        "m2": 0.22168642972246744
+      }
+    },
+    "PPARG||CD36": {
+      "ablation": {
+        "count": 10,
+        "mean": -0.06370887756347657,
+        "m2": 0.04129066555324242
+      }
+    },
+    "ATF3||MMP2": {
+      "ablation": {
+        "count": 3,
+        "mean": 0.01716740926106771,
+        "m2": 0.0006139206840695504
+      }
+    },
+    "RUNX3||TCF4": {
+      "ablation": {
+        "count": 2,
+        "mean": -0.002857208251953125,
+        "m2": 0.0017859193685580976
+      }
+    },
+    "FOXO1||PDGFB": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.0446319580078125,
+        "m2": 0.0
+      }
+    },
+    "TCF4||VIM": {
+      "ablation": {
+        "count": 8,
+        "mean": 0.037705421447753906,
+        "m2": 0.004141848039580508
+      }
+    },
+    "KLF2||PPARG": {
+      "ablation": {
+        "count": 9,
+        "mean": -0.062031851874457464,
+        "m2": 0.13923467340727155
+      }
+    },
+    "PPARG||MMP9": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.7026824951171875,
+        "m2": 0.0
+      }
+    },
+    "FOSB||CXCL8": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.0286712646484375,
+        "m2": 0.0
+      }
+    },
+    "SPI1||HCK": {
+      "ablation": {
+        "count": 10,
+        "mean": -0.13814659118652342,
+        "m2": 0.100166783160239
+      }
+    },
+    "KLF4||ATF3": {
+      "ablation": {
+        "count": 6,
+        "mean": -0.11668141682942708,
+        "m2": 0.02049801592996421
+      }
+    },
+    "FOSB||TIMP1": {
+      "ablation": {
+        "count": 10,
+        "mean": 0.02858695983886719,
+        "m2": 0.007811112444323953
+      }
+    },
+    "ETS1||F13A1": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.14035415649414062,
+        "m2": 0.0
+      }
+    },
+    "RUNX3||GATD3": {
+      "ablation": {
+        "count": 1,
+        "mean": -0.008825302124023438,
+        "m2": 0.0
+      }
+    },
+    "KLF2||THBD": {
+      "ablation": {
+        "count": 3,
+        "mean": -0.16298484802246094,
+        "m2": 0.028225364345416892
+      }
+    }
+  },
+  "component_stats": {},
+  "saved_at": 1770768932.2868328
+}

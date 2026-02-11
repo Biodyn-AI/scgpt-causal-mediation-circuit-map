@@ -1,0 +1,9 @@
+dataset	min_cells_threshold	total_unique_pairs_observed	kidney_supported_pairs	lung_supported_pairs	immune_supported_pairs	union_supported_pairs	shared_all_tissues_pairs
+discovery	1	132	65	34	41	132	0
+discovery	3	132	32	20	14	63	0
+discovery	5	132	13	15	6	32	0
+discovery	10	132	2	9	1	11	0
+discovery_fixed40	1	40	40	5	10	40	2
+discovery_fixed40	3	40	34	4	7	34	1
+discovery_fixed40	5	40	20	4	4	21	1
+discovery_fixed40	10	40	2	3	3	5	1

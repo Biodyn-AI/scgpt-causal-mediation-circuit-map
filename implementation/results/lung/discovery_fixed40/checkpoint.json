@@ -1,0 +1,59 @@
+{
+  "processed_pairs": [
+    "AKR1B1||VIM",
+    "EGR1||CD28",
+    "ETS1||CD8A",
+    "ETS1||IL2RB",
+    "ETS1||LCK",
+    "GATA3||CD8A",
+    "GATA3||GATA3",
+    "GATA3||STAT4",
+    "IRF4||MS4A1",
+    "KLF2||CXCR4",
+    "PAX5||BLK",
+    "PAX5||CD79A",
+    "STAT4||PRF1",
+    "STAT4||S100A4",
+    "TBX21||GATA3",
+    "TCF4||VIM"
+  ],
+  "pair_stats": {
+    "KLF2||CXCR4": {
+      "ablation": {
+        "count": 11,
+        "mean": -0.08180930397727273,
+        "m2": 0.25648258947529196
+      }
+    },
+    "GATA3||GATA3": {
+      "ablation": {
+        "count": 5,
+        "mean": -0.6562969207763671,
+        "m2": 3.457135477777046
+      }
+    },
+    "STAT4||S100A4": {
+      "ablation": {
+        "count": 2,
+        "mean": -0.0009241104125976562,
+        "m2": 2.335016688448377e-06
+      }
+    },
+    "TCF4||VIM": {
+      "ablation": {
+        "count": 12,
+        "mean": 0.04278834660847982,
+        "m2": 0.009031604389444206
+      }
+    },
+    "AKR1B1||VIM": {
+      "ablation": {
+        "count": 12,
+        "mean": 0.03597370783487956,
+        "m2": 0.015036599073634234
+      }
+    }
+  },
+  "component_stats": {},
+  "saved_at": 1770769304.109508
+}
